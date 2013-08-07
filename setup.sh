@@ -3,8 +3,8 @@
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get install -y git-core
-sudo apt-get install build-essential # G++, make, etc
+sudo apt-get install git-core
+sudo apt-get install build-essential
 sudo apt-get install vim
 sudo apt-get install tmux
 
@@ -35,7 +35,7 @@ fi
 # TMUX SETUP
 # TODO
 
-if [ $1 == "desktop" ]
+if [ "$1" == "desktop" ]
 then
   sudo apt-get install ubuntu-restricted-extras # Proprietary Stuff
   sudo apt-get install gnome-shell              # For gnome
@@ -52,7 +52,7 @@ then
   # Filezilla
 fi
 
-if [ $1 == "server" && $2 == "bitstarter" ]
+if [ "$1" == "server" ] && [ "$2" == "bitstarter" ]
 then
   cd $HOME
 
@@ -109,7 +109,7 @@ then
   exit # leave/enter to enable node.
 fi
 
-if [ $1 == "server" && $2 == "albertgural" ]
+if [ "$1" == "server" ] && [ "$2" == "albertgural" ]
 then
   echo "This setup to be completed..."
   # TODO: sql/mysql, php, node.js, django, ruby, python
