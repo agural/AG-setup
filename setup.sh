@@ -24,10 +24,13 @@ then
 else
   echo "File .vimrc already exists. You must perform a manual merge."
 fi
-
-mkdir -p $HOME/.vim/colors
-cp bin/hightech.vim $HOME/.vim/colors
-# TODO: Make sure color scheme is set in .vimrc too.
+if [ ! -f "$HOME/.vim/colors/hightech.vim" ]
+then
+  mkdir -p $HOME/.vim/colors
+  cp bin/hightech.vim $HOME/.vim/colors
+else
+  echo "File hightech.vim already installed."
+fi
 
 # TMUX SETUP
 # TODO
@@ -40,16 +43,13 @@ then
   # TODO: The rest...
   # Chrome
   # Skype
-  # Dropbox
   # gimp
   # inkscape
   # Compiz
   # Wine
 
   # Java
-  # Torrent
   # Filezilla
-  # VirtualBox
 fi
 
 if [ $1 == "server" && $2 == "bitstarter" ]
