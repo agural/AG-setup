@@ -7,9 +7,9 @@ set t_Co=256
 set term=screen-256color
 
 colorscheme hightech
+syntax on
+autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
-
-syntax on 
 set tw=80
 set cb="exclude:.*"
 set nocompatible
