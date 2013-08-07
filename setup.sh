@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#sudo apt-get update
-#sudo apt-get upgrade
+sudo apt-get update
+sudo apt-get upgrade
 
 sudo apt-get install git-core
 sudo apt-get install build-essential
