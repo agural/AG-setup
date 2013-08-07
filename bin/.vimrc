@@ -1,3 +1,7 @@
+" Albert Gural
+" e: ag@albertgural.com
+" w: http://albertgural.com
+" d: 2011/06/30 - 2013/08/07
 
 set t_Co=256
 set term=screen-256color

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-sudo apt-get update
-sudo apt-get upgrade
+#sudo apt-get update
+#sudo apt-get upgrade
 
 sudo apt-get install git-core
 sudo apt-get install build-essential
@@ -9,34 +9,38 @@ sudo apt-get install vim
 sudo apt-get install tmux
 
 # BASH SETUP
-if [ ! -f "$HOME/.bashrc" ]
-then
+echo "  >>> Setting up .bashrc"
+if [ ! -f "$HOME/.bashrc" ] || grep -q "albertgural" "$HOME/.bashrc"; then
   cp bin/.bashrc $HOME
 else
-  echo "File .bashrc already exists. You must perform a manual merge."
+  if ! grep -q ".bash_ag" "$HOME/.bashrc"; then
+    echo "" >> $HOME/.bashrc
+    echo "" >> $HOME/.bashrc
+    echo "# AG's .bashrc" >> $HOME/.bashrc
+    echo ". ~/.bash_ag" >> $HOME/.bashrc
+  fi
+  cp bin/.bashrc $HOME/.bash_ag
 fi
-# setup ~/.profile or ~/.bash_profile ?
+# TODO: .profile or .bash_profile?
 
 # VIM SETUP
-if [ ! -f "$HOME/.vimrc" ]
-then
+echo "  >>> Setting up .vimrc"
+if [ ! -f "$HOME/.vimrc" ] || grep -q "albertgural" "$HOME/.vimrc"; then
   cp bin/.vimrc $HOME
 else
   echo "File .vimrc already exists. You must perform a manual merge."
+  read -p "Press [Enter] key to continue..."
 fi
-if [ ! -f "$HOME/.vim/colors/hightech.vim" ]
-then
-  mkdir -p $HOME/.vim/colors
-  cp bin/hightech.vim $HOME/.vim/colors
-else
-  echo "File hightech.vim already installed."
-fi
+mkdir -p $HOME/.vim/colors
+cp bin/hightech.vim $HOME/.vim/colors
 
 # TMUX SETUP
+echo "  >>> Setting up tmux.conf"
 # TODO
 
-if [ "$1" == "desktop" ]
-then
+echo "  >>> Completed Initial Setup"
+
+if [ "$1" == "desktop" ]; then
   sudo apt-get install ubuntu-restricted-extras # Proprietary Stuff
   sudo apt-get install gnome-shell              # For gnome
   sudo apt-get install vlc                      # For playing media
@@ -52,8 +56,7 @@ then
   # Filezilla
 fi
 
-if [ "$1" == "server" ] && [ "$2" == "bitstarter" ]
-then
+if [ "$1" == "server" ] && [ "$2" == "bitstarter" ]; then
   cd $HOME
 
   clear
@@ -65,7 +68,7 @@ then
   echo "Copy the key and add it to Github at https://github.com/settings/ssh."
   ssh-keygen -t rsa
   cat ~/.ssh/id_rsa.pub
-  pause "Press [Enter] key to continue..."
+  read -p "Press [Enter] key to continue..."
 
   clear
   echo "Cloning bitstarter repository locally."
@@ -104,13 +107,12 @@ then
   echo "\t$ git merge staging"
   echo "\t$ git push production-heroku master:master"
   echo "...and that's it. We're going to exit now, but when you log back in, node should be enabled and you can start coding. Have fun!"
-  pause "Press [Enter] key to continue..."
+  read -p "Press [Enter] key to continue..."
 
   exit # leave/enter to enable node.
 fi
 
-if [ "$1" == "server" ] && [ "$2" == "albertgural" ]
-then
+if [ "$1" == "server" ] && [ "$2" == "albertgural" ]; then
   echo "This setup to be completed..."
   # TODO: sql/mysql, php, node.js, django, ruby, python
 fi
