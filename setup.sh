@@ -3,10 +3,10 @@
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get install git-core
-sudo apt-get install build-essential
-sudo apt-get install vim
-sudo apt-get install tmux
+sudo apt-get install -y git-core
+sudo apt-get install -y build-essential
+sudo apt-get install -y vim
+sudo apt-get install -y tmux
 
 # BASH SETUP
 echo "  >>> Setting up .bashrc"
@@ -33,6 +33,12 @@ else
 fi
 mkdir -p $HOME/.vim/colors
 cp bin/hightech.vim $HOME/.vim/colors
+
+# gedit SETUP
+echo "  >>> Copying gedit theme"
+if [ ! -f "$HOME/dark.xml" ] || grep -q "albertgural" "$HOME/dark.xml"; then
+  cp bin/dark.xml $HOME
+fi
 
 # TMUX SETUP
 echo "  >>> Setting up tmux.conf"
