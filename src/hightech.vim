@@ -1,7 +1,7 @@
 "===========================================================================================+
-"                        _   _ ___ ____ _   _ _____ _____ ____ _   _			                  "
-"                       | | | |_ _/ ___| | | |_   _| ____/ ___| | | |		    	              "
-"                       | |_| || | |  _| |_| | | | |  _|| |   | |_| |			                  "
+"                        _   _ ___ ____ _   _ _____ _____ ____ _   _                        "
+"                       | | | |_ _/ ___| | | |_   _| ____/ ___| | | |	                      "
+"                       | |_| || | |  _| |_| | | | |  _|| |   | |_| |                       "
 "                       |  _  || | |_| |  _  | | | | |__| |___|  _  |                       "
 "                       |_| |_|___\____|_| |_| |_| |_____\____|_| |_|                       "
 "                                                                                           "
@@ -37,6 +37,8 @@ hi StatusLine   gui=none  guifg=#00ff00  guibg=#202020 	cterm=none  ctermfg=46  
 hi StatusLineNC gui=none  guifg=#000000  guibg=#bbbbbb 	cterm=none  ctermfg=16   ctermbg=250
 hi Visual       gui=none  guifg=#000000  guibg=#bbbbbb 	cterm=none  ctermfg=16   ctermbg=250
 hi Cursor                 guifg=#000000  guibg=#44ff44              ctermfg=16   ctermbg=83
+hi ColorColumn                           guibg=#121212                           ctermbg=233
+hi CursorLine                            guibg=#121212                           ctermbg=233
 hi DiffAdd                guifg=#ffff00  guibg=#080808              ctermfg=226  ctermbg=232
 hi DiffDelete             guifg=#444444  guibg=#080808              ctermfg=238  ctermbg=232
 hi DiffChange             guifg=#ffffff  guibg=#080808              ctermfg=231  ctermbg=232
