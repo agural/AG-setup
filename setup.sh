@@ -118,8 +118,12 @@ if [ "$1" == "server" ] && [ "$2" == "bitstarter" ]; then
   exit # leave/enter to enable node.
 fi
 
-if [ "$1" == "server" ] && [ "$2" == "albertgural" ]; then
+if [ "$1" == "server" ] && [ "$2" == "lempw" || "$2" == "albertgural" ]; then
   echo "This setup to be completed..."
-  # TODO: sql/mysql, php, node.js, django, ruby, python
+  # TODO: sql/mysql, php, node.js, django, ruby, python.
+  if [ "$2" == "albertgural" ]; then
+    echo "This setup to be completed..."
+    # TODO: install a backed up mysql table and all the .../www files.
+  fi
 fi
 
