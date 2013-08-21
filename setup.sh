@@ -11,7 +11,7 @@ sudo apt-get install -y tmux
 # BASH SETUP
 echo "  >>> Setting up .bashrc"
 if [ ! -f "$HOME/.bashrc" ] || grep -q "albertgural" "$HOME/.bashrc"; then
-  cp bin/.bashrc $HOME
+  cp src/.bashrc $HOME
 else
   if ! grep -q ".bash_ag" "$HOME/.bashrc"; then
     echo "" >> $HOME/.bashrc
@@ -19,30 +19,42 @@ else
     echo "# AG's .bashrc" >> $HOME/.bashrc
     echo ". ~/.bash_ag" >> $HOME/.bashrc
   fi
-  cp bin/.bashrc $HOME/.bash_ag
+  cp src/.bashrc $HOME/.bash_ag
 fi
 # TODO: .profile or .bash_profile?
 
 # VIM SETUP
 echo "  >>> Setting up .vimrc"
+mkdir -p $HOME/.vim/autoload
+mkdir -p $HOME/.vim/bundle
+mkdir -p $HOME/.vim/colors
+curl https://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim > $HOME/.vim/autoload/pathogen.vim
+git clone https://github.com/bling/vim-airline $HOME/.vim/bundle/vim-airline
+git clone git://github.com/scrooloose/nerdtree.git $HOME/.vim/bundle/nerdtree
 if [ ! -f "$HOME/.vimrc" ] || grep -q "albertgural" "$HOME/.vimrc"; then
-  cp bin/.vimrc $HOME
+  cp src/.vimrc $HOME
 else
   echo "File .vimrc already exists. You must perform a manual merge."
   read -p "Press [Enter] key to continue..."
 fi
-mkdir -p $HOME/.vim/colors
-cp bin/hightech.vim $HOME/.vim/colors
+cp src/hightech.vim $HOME/.vim/colors
 
 # gedit SETUP
 echo "  >>> Copying gedit theme"
 if [ ! -f "$HOME/dark.xml" ] || grep -q "albertgural" "$HOME/dark.xml"; then
-  cp bin/dark.xml $HOME
+  cp src/dark.xml $HOME
 fi
 
 # TMUX SETUP
 echo "  >>> Setting up tmux.conf"
-# TODO
+mkdir $HOME/.tmux
+git clone https://github.com/erikw/tmux-powerline.git $HOME/.tmux
+if [ -f "$HOME/.tmux.conf" ] && ! grep -q "albertgural" "$HOME/.tmux.conf"; then
+  echo "File .tmux.conf already exists. Overwriting anyway."
+  read -p "Press [Enter] key to continue..."
+fi
+cp src/.tmux.conf $HOME
+tmux source-file $HOME/.tmux.conf
 
 echo "  >>> Completed Initial Setup"
 

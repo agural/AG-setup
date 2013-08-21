@@ -62,5 +62,8 @@ if exists('+colorcolumn')
   let &colorcolumn="81,".join(range(121,1000),",")
 endif
 
+filetype plugin indent on
 autocmd FileType make setlocal noexpandtab
+
+execute pathogen#infect()
 
