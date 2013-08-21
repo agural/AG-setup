@@ -1,0 +1,21 @@
+Tasks to be completed:
+
+* BASH [done]
+* VIM
+    * Fix sep characters (in .vimrc)
+    * Fix GIT branch section (in .vim/bundle/vim-airline/autoload/airline/extensions/branch.vim)
+    * Fix Git branch character (in .vim/bundle/vim-airline/plugin/airline.vim)
+* GEDIT [done]
+* TMUX [done]
+
+* desktop
+    * Add installs for all important desktop applications
+* server bitstarter
+    * Update for current bitstarter
+* server LEMP + Wordpress
+    * Add LEMP install instructions
+    * Add Wordpress install instructions
+    * Add DWF instructions
+* server LEMP + Wordpress + site
+    * Add automatic backup retrieval of database
+

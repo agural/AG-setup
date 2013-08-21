@@ -4,61 +4,73 @@ sudo apt-get update
 sudo apt-get upgrade
 
 sudo apt-get install -y git-core
+sudo apt-get install -y curl
 sudo apt-get install -y build-essential
-sudo apt-get install -y vim
+sudo apt-get install -y vim vim-common vim-gnome vim-gui-common vim-runtime
 sudo apt-get install -y tmux
 
 # BASH SETUP
 echo "  >>> Setting up .bashrc"
 if [ ! -f "$HOME/.bashrc" ] || grep -q "albertgural" "$HOME/.bashrc"; then
-  cp src/.bashrc $HOME
+    cp src/.bashrc $HOME
 else
-  if ! grep -q ".bash_ag" "$HOME/.bashrc"; then
-    echo "" >> $HOME/.bashrc
-    echo "" >> $HOME/.bashrc
-    echo "# AG's .bashrc" >> $HOME/.bashrc
-    echo ". ~/.bash_ag" >> $HOME/.bashrc
-  fi
-  cp src/.bashrc $HOME/.bash_ag
+    echo " *** Warning: .bashrc already exists. ***"
+    read -r -p "Overwrite current file [y|n]?" response
+    if [$response = "y" ]; then
+        cp src/.bashrc $HOME
+    else
+        echo "Skipping BASH configuration."
+    fi
 fi
-# TODO: .profile or .bash_profile?
 
 # VIM SETUP
+# Pathogen: https://raw.github.com/tpope/vim-pathogen
+# Vim Airline: https://github.com/bling/vim-airline
+# NERDTree: git://github.com/scrooloose/nerdtree.git
 echo "  >>> Setting up .vimrc"
-mkdir -p $HOME/.vim/autoload
-mkdir -p $HOME/.vim/bundle
-mkdir -p $HOME/.vim/colors
-curl https://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim > $HOME/.vim/autoload/pathogen.vim
-git clone https://github.com/bling/vim-airline $HOME/.vim/bundle/vim-airline
-git clone git://github.com/scrooloose/nerdtree.git $HOME/.vim/bundle/nerdtree
 if [ ! -f "$HOME/.vimrc" ] || grep -q "albertgural" "$HOME/.vimrc"; then
-  cp src/.vimrc $HOME
+    cp -r src/.vim $HOME
+    cp src/.vimrc $HOME
 else
-  echo "File .vimrc already exists. You must perform a manual merge."
-  read -p "Press [Enter] key to continue..."
+    echo "*** Warning: .vimrc already exists. ***"
+    read -r -p "Overwrite current file [y|n]?" response
+    if [ $response = "y" ]; then
+        cp -r src/.vim $HOME
+        cp src/.vimrc $HOME
+    else
+        echo "Skipping VIM configuration."
+    fi
 fi
-cp src/hightech.vim $HOME/.vim/colors
 
 # gedit SETUP
 echo "  >>> Copying gedit theme"
 if [ ! -f "$HOME/dark.xml" ] || grep -q "albertgural" "$HOME/dark.xml"; then
-  cp src/dark.xml $HOME
+    cp src/dark.xml $HOME
+else
+    echo "*** Warning: dark.xml already exists. Skipping GEDIT configuration."
 fi
 
 # TMUX SETUP
+# TMUX Powerline: https://github.com/erikw/tmux-powerline.git
 echo "  >>> Setting up tmux.conf"
-mkdir $HOME/.tmux
-git clone https://github.com/erikw/tmux-powerline.git $HOME/.tmux
-if [ -f "$HOME/.tmux.conf" ] && ! grep -q "albertgural" "$HOME/.tmux.conf"; then
-  echo "File .tmux.conf already exists. Overwriting anyway."
-  read -p "Press [Enter] key to continue..."
+if [ ! -f "$HOME/.tmux.conf" ] || grep -q "albertgural" "$HOME/.tmux.conf"; then
+    cp src/.tmux.conf $HOME
+    cp -r src/.tmux $HOME
+else
+    echo "*** Warning: .tmux.conf already exists. ***"
+    read -r -p "Overwrite current file [y|n]?" response
+    if [ $response = "y" ]; then
+        cp src/.tmux.conf $HOME
+        cp -r src/.tmux $HOME
+    else
+        echo "Skipping TMUX configuration."
+    fi
 fi
-cp src/.tmux.conf $HOME
 tmux source-file $HOME/.tmux.conf
 
 echo "  >>> Completed Initial Setup"
 
-if [ "$1" == "desktop" ]; then
+if [ "$1" = "desktop" ]; then
   sudo apt-get install ubuntu-restricted-extras # Proprietary Stuff
   sudo apt-get install gnome-shell              # For gnome
   sudo apt-get install vlc                      # For playing media
@@ -74,7 +86,7 @@ if [ "$1" == "desktop" ]; then
   # Filezilla
 fi
 
-if [ "$1" == "server" ] && [ "$2" == "bitstarter" ]; then
+if [ "$1" = "server" ] && [ "$2" = "bitstarter" ]; then
   cd $HOME
 
   clear
@@ -130,10 +142,10 @@ if [ "$1" == "server" ] && [ "$2" == "bitstarter" ]; then
   exit # leave/enter to enable node.
 fi
 
-if [ "$1" == "server" ] && [ "$2" == "lempw" || "$2" == "albertgural" ]; then
+if [ "$1" = "server" ] && [ "$2" = "lempw" -o "$2" = "albertgural" ]; then
   echo "This setup to be completed..."
   # TODO: sql/mysql, php, node.js, django, ruby, python.
-  if [ "$2" == "albertgural" ]; then
+  if [ "$2" = "albertgural" ]; then
     echo "This setup to be completed..."
     # TODO: install a backed up mysql table and all the .../www files.
   fi

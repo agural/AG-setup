@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/albert/Caltech/Y1T3/CS24/cs24hw1/proc'
+let g:netrw_dirhist_2='/home/albert/Caltech/Y1T3/CS24/cs24hw3/ptrmath'
+let g:netrw_dirhist_3='/home/albert/Caltech/Y1T3/CS24/cs24hw3/rle'
+let g:netrw_dirhist_4='/home/albert/Trash/ArduinoPure'
+let g:netrw_dirhist_5='/home/albert/.vim/bundle/vim-airline/autoload/airline/themes'

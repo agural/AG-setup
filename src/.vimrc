@@ -1,9 +1,9 @@
 " Albert Gural
 " e: ag@albertgural.com
 " w: http://albertgural.com
-" d: 2011/06/30 - 2013/08/20
+" d: 2011/06/30 - 2013/08/21
 
-syntax on 
+syntax on
 set t_Co=256
 set term=screen-256color
 colorscheme hightech
@@ -14,6 +14,7 @@ set hidden
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
+set lazyredraw
 
 set hlsearch
 set incsearch
@@ -49,6 +50,7 @@ set title
 set laststatus=2
 set history=1000
 set undolevels=1000
+set ttimeoutlen=10
 
 nnoremap ; :
 nnoremap j gj
@@ -66,4 +68,6 @@ filetype plugin indent on
 autocmd FileType make setlocal noexpandtab
 
 execute pathogen#infect()
+let g:airline_left_sep='❯'
+let g:airline_right_sep='❮'
 
