@@ -3,7 +3,7 @@
 # Source lib to get the function get_tmux_pwd
 source "${TMUX_POWERLINE_DIR_LIB}/tmux_adapter.sh"
 
-branch_symbol="ע"
+branch_symbol="⎇  "
 git_colour="82"
 svn_colour="82"
 hg_colour="82"
