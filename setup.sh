@@ -68,6 +68,10 @@ else
 fi
 tmux source-file $HOME/.tmux.conf
 
+# GIT SETUP
+echo "  >>> Setting up Git"
+cp src/.gitconfig $HOME
+
 echo "  >>> Completed Initial Setup"
 
 if [ "$1" = "desktop" ]; then
