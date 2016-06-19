@@ -9,6 +9,8 @@ set term=screen-256color
 colorscheme hightech
 autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
+set clipboard^=unnamed
+
 set nocompatible
 set hidden
 set encoding=utf-8
@@ -23,7 +25,6 @@ set smartcase
 set showmatch
 set wildmenu
 set backspace=indent,eol,start
-set clipboard=unnamedplus
 set pastetoggle=<F2>
 
 set mouse=a
