@@ -1,0 +1,4 @@
+pane	0	1	:vim	1	:*	0	:/home/albert/School/Research/Chip_Testing	0	vim	:vim -O tests.txt
+pane	0	1	:vim	1	:*	1	:/home/albert/School/Research/Chip_Testing	1	vim	:vim -O bugs.txt
+window	0	1	1	:*	8262,191x50,0,0{95x50,0,0,0,95x50,96,0,1}
+state	0	0

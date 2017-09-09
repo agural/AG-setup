@@ -1,0 +1,32 @@
+pane	0	1	:python	1	:!*	0	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Data	0	vim	:vim -O scrape.py
+pane	0	1	:python	1	:!*	1	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Data	0	bash	:
+pane	0	1	:python	1	:!*	2	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Data	1	python	:python
+pane	0	2	:bash	0	:!-	0	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Data	1	bash	:
+pane	0	2	:bash	0	:!-	1	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Data/data	0	bash	:
+pane	1	1	:python	0	:-	0	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/rnn	1	python	:/home/albert/anaconda3/bin/python /home/albert/anaconda3/bin/jupyter-notebook
+pane	1	2	:bash	1	:!*	0	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/rnn	0	vim	:vim -O rnn.py
+pane	1	2	:bash	1	:!*	1	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Data/data	1	bash	:
+pane	3	1	:vim	0	:	0	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/A3C	0	vim	:vim -O market.py
+pane	3	1	:vim	0	:	1	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/A3C	1	vim	:vim -O A3C.py
+pane	3	2	:bash	0	:!-	0	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/A3C	0	python	:python
+pane	3	2	:bash	0	:!-	1	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/A3C	1	bash	:
+pane	3	3	:bash	1	:!*	0	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/human	0	vim	:vim -O market.py
+pane	3	3	:bash	1	:!*	1	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/human	1	bash	:
+pane	4	1	:bash	1	:*	0	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Data	0	bash	:
+pane	4	1	:bash	1	:*	1	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Data	0	python	:python
+pane	4	1	:bash	1	:*	2	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Data/data	1	bash	:
+pane	5	1	:vim	1	:*	0	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/human	1	vim	:vim -O market.py
+pane	5	1	:vim	1	:*	1	:/home/albert/Dropbox/Projects/Markets/Bitcoin/Poloniex_Algo/human	0	bash	:
+pane	7	1	:[tmux]	1	:*	0	:/home/albert	1	bash	:
+pane	7	1	:[tmux]	1	:*	1	:/home/albert	0	vim	:vim -O .tmux.conf
+window	0	1	1	:!*	27a4,184x51,0,0{92x51,0,0,0,91x51,93,0[91x35,93,0,1,91x15,93,36,2]}
+window	0	2	0	:!-	5ad4,184x51,0,0{92x51,0,0,3,91x51,93,0,18}
+window	1	1	0	:-	b482,184x51,0,0,5
+window	1	2	1	:!*	b502,184x51,0,0{92x51,0,0,6,91x51,93,0,7}
+window	3	1	0	:	104b,184x51,0,0{92x51,0,0,14,91x51,93,0,15}
+window	3	2	0	:!-	d04d,184x51,0,0{92x51,0,0,16,91x51,93,0,22}
+window	3	3	1	:!*	8350,91x49,0,0[91x40,0,0,23,91x8,0,41,25]
+window	4	1	1	:*	4208,184x51,0,0{92x51,0,0[92x35,0,0,26,92x15,0,36,28],91x51,93,0,27}
+window	5	1	1	:*	50aa,91x49,0,0[91x37,0,0,30,91x11,0,38,32]
+window	7	1	1	:*	e460,184x51,0,0{116x51,0,0,54,67x51,117,0,55}
+state	7	

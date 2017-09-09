@@ -8,6 +8,8 @@ sudo apt-get install -y curl
 sudo apt-get install -y build-essential
 sudo apt-get install -y vim vim-common vim-gnome vim-gui-common vim-runtime
 sudo apt-get install -y tmux
+sudo apt-get install -y xclip # For tmux-yank
+sudo apt-get install -y tree # For directory tree view
 
 # BASH SETUP
 echo "  >>> Setting up .bashrc"
