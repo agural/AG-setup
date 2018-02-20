@@ -1,5 +1,19 @@
 #!/bin/bash
 
+mkdir -p ~/web/trading # make directory with name of algo here
+mkdir -p ~/Projects/Trading # copy algo here
+# remember to "crontab -e" the check.sh script
+
+cp -r ~/AG-Setup/src/.tmux ~
+cp -r ~/AG-Setup/src/.vim ~
+cp ~/AG-Setup/src/.tmux.conf ~
+cp ~/AG-Setup/src/.vimrc ~
+cp ~/AG-Setup/src/.gitconfig ~
+
+sudo apt update
+sudo apt upgrade
+
+
 if [ ! -d ~/anaconda2 ]
 then
     # Basic Python2.7 installation
