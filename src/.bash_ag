@@ -26,3 +26,15 @@ if [[ $TMUX_PANE ]]; then
     HISTFILE=$HOME/.tmux_history/.tmux_${TMUX_PANE:1}
 fi
 
+# Git stuff
+git_files() {
+	git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2 | cut --complement --characters=13-40 | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest;
+}
+git_rm() {
+	echo "Deleting $1";
+	git filter-branch -f --tree-filter "rm -rf $1" HEAD;
+	git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin;
+	git reflog expire --expire=now --all;
+	git gc --prune=now;
+}
+
