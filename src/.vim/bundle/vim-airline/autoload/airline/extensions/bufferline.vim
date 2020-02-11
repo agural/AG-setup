@@ -1,31 +1,28 @@
-" MIT License. Copyright (c) 2013 Bailey Ling.
-" vim: ts=2 sts=2 sw=2 fdm=indent
+" MIT License. Copyright (c) 2013-2019 Bailey Ling et al.
+" Plugin: https://github.com/bling/vim-bufferline
+" vim: et ts=2 sts=2 sw=2
 
-function! airline#extensions#bufferline#apply()
-  " revert to default in non-active splits
-  for nr in filter(range(1, winnr('$')), 'v:val != winnr()')
-    if matchstr(getwinvar(nr, '&statusline'), '%{bufferline') != ''
-      call setwinvar(nr, 'airline_section_c', '%f%m')
-      call setwinvar(nr, '&statusline', airline#get_statusline(nr, 0))
-    endif
-  endfor
+scriptencoding utf-8
 
-  " check for other plugin overrides first
-  if !exists('w:airline_section_c')
-    let w:airline_section_c = '%{bufferline#refresh_status()}'.bufferline#get_status_string()
-  endif
-endfunction
+if !exists('*bufferline#get_status_string')
+  finish
+endif
 
 function! airline#extensions#bufferline#init(ext)
-  highlight AlBl_active gui=bold cterm=bold term=bold
-  highlight link AlBl_inactive airline_c
-  let g:bufferline_inactive_highlight = 'AlBl_inactive'
-  let g:bufferline_active_highlight = 'AlBl_active'
-  let g:bufferline_active_buffer_left = ''
-  let g:bufferline_active_buffer_right = ''
-  let g:bufferline_separator = ' '
+  if get(g:, 'airline#extensions#bufferline#overwrite_variables', 1)
+    highlight bufferline_selected gui=bold cterm=bold term=bold
+    highlight link bufferline_selected_inactive airline_c_inactive
+    let g:bufferline_inactive_highlight = 'airline_c'
+    let g:bufferline_active_highlight = 'bufferline_selected'
+    let g:bufferline_active_buffer_left = ''
+    let g:bufferline_active_buffer_right = ''
+    let g:bufferline_separator = g:airline_symbols.space
+  endif
 
-  if g:airline_section_c == '%f%m'
-    call a:ext.add_statusline_funcref(function('airline#extensions#bufferline#apply'))
+  if exists("+autochdir") && &autochdir == 1
+    " if 'acd' is set, vim-airline uses the path section, so we need ot redefine this here as well
+    call airline#parts#define_raw('path', '%{bufferline#refresh_status()}'.bufferline#get_status_string())
+  else
+    call airline#parts#define_raw('file', '%{bufferline#refresh_status()}'.bufferline#get_status_string())
   endif
 endfunction

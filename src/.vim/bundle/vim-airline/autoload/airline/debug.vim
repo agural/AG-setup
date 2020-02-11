@@ -1,5 +1,7 @@
-" MIT License. Copyright (c) 2013 Bailey Ling.
+" MIT License. Copyright (c) 2013-2020 Bailey Ling et al.
 " vim: et ts=2 sts=2 sw=2
+
+scriptencoding utf-8
 
 function! airline#debug#profile1()
   profile start airline-profile-switch.log
@@ -32,3 +34,18 @@ function! airline#debug#profile2()
   noautocmd qall!
 endfunction
 
+function! airline#debug#profile3()
+  profile start airline-profile-mode.log
+  profile func *
+  profile file *
+
+  for i in range(1000)
+    startinsert
+    redrawstatus
+    stopinsert
+    redrawstatus
+  endfor
+
+  profile pause
+  noautocmd qall!
+endfunction
