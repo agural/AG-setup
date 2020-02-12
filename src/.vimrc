@@ -10,6 +10,7 @@ colorscheme hightech
 autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
 set clipboard^=unnamed
+"set clipboard^=unnamedplus
 
 set nocompatible
 set hidden
