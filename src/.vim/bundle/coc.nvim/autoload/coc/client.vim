@@ -86,12 +86,12 @@ function! s:on_exit(name, code) abort
   let client['chan_id'] = 0
   let client['channel'] = v:null
   let client['async_req_id'] = 1
-  if a:code != 0 && a:code != 143
+  if a:code != 0
     echohl Error | echom 'client '.a:name. ' abnormal exit with: '.a:code | echohl None
   endif
 endfunction
 
-function! coc#client#get_channel(client)
+function! s:get_channel(client)
   if s:is_vim
     return a:client['channel']
   endif
@@ -99,7 +99,7 @@ function! coc#client#get_channel(client)
 endfunction
 
 function! s:request(method, args) dict
-  let channel = coc#client#get_channel(self)
+  let channel = s:get_channel(self)
   if empty(channel) | return '' | endif
   try
     if s:is_vim
@@ -131,7 +131,7 @@ function! s:request(method, args) dict
 endfunction
 
 function! s:notify(method, args) dict
-  let channel = coc#client#get_channel(self)
+  let channel = s:get_channel(self)
   if empty(channel) | return '' | endif
   try
     if s:is_vim
@@ -155,7 +155,7 @@ function! s:notify(method, args) dict
 endfunction
 
 function! s:request_async(method, args, cb) dict
-  let channel = coc#client#get_channel(self)
+  let channel = s:get_channel(self)
   if empty(channel) | return '' | endif
   if type(a:cb) != 2
     echohl Error | echom '['.self['name'].'] Callback should be function' | echohl None

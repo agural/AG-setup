@@ -106,7 +106,7 @@
 - Add `prompt.paste` action to list.
 - Add title as argument support for `codeAction` action.
 - Add `suggest.floatEnable` configuration.
-- Add `editor.action.organizeImport` command.
+- Add `editor.action.orgnizeImport` command.
 - Add `:CocAction` and `:CocFix` commands.
 - Add `codeActions` action.
 - Fix issues with list.
@@ -938,7 +938,7 @@
   Sometimes `bufReadPost` `BufEnter` could be not be fired on buffer create,
   check buffer on `CursorHold` and `TextChanged` to fix this issue.
 
-- Add tsserver features: `tsserver.formatOnSave` and `tsserver.organizeImportOnSave`
+- Add tsserver features: `tsserver.formatOnSave` and `tsserver.orgnizeImportOnSave`
 
   Both default to false.
 
