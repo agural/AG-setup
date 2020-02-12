@@ -178,6 +178,8 @@ let g:ale_echo_msg_format = '[%linter%] [%severity%: %code%] %s'
 let g:airline#extensions#ale#enabled = 1
 "let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', 'OK']
 
+let g:ale_virtualenv_dir_names = [] "https://github.com/dense-analysis/ale/issues/1777
+
 "hi ALEWarningSign guibg=#808000 ctermbg=3
 "hi ALEErrorSign   guibg=#800000 ctermbg=1
 hi ALEWarning     guibg=#5f5f00 ctermbg=58
@@ -206,6 +208,8 @@ augroup autoformat_settings
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
+
+autocmd VimEnter * NoAutoFormatBuffer
 nmap <silent> <C-b> :FormatCode<CR>
 nmap <silent> <C-l> :FormatLines<CR>
 
