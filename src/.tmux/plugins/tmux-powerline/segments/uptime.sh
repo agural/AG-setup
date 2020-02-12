@@ -1,6 +1,6 @@
 # Prints the uptime.
 
 run_segment() {
-	uptime | grep -PZo "(?<=up )[^,]*"
-	return 0
+    uptime | sed 's/.*up \([^,]*\), .*/\1/'
+    return 0
 }
