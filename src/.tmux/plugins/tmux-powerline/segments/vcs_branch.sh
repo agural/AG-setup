@@ -3,10 +3,10 @@
 # Source lib to get the function get_tmux_pwd
 source "${TMUX_POWERLINE_DIR_LIB}/tmux_adapter.sh"
 
-branch_symbol=""
-git_colour="5"
-svn_colour="220"
-hg_colour="45"
+branch_symbol="⎇  "
+git_colour="82"
+svn_colour="82"
+hg_colour="82"
 
 
 run_segment() {
@@ -49,7 +49,7 @@ __parse_git_branch() {
 	fi
 
 	# Clean off unnecessary information.
-	branch=${branch#refs\/heads\/}
+	branch=${branch##*/}
 
 	echo  -n "#[fg=colour${git_colour}]${branch_symbol} #[fg=colour${TMUX_POWERLINE_CUR_SEGMENT_FG}]${branch}"
 }

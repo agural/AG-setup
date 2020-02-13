@@ -9,6 +9,7 @@ sudo apt-get install fonts-powerline # Fonts for airline
 cp ./src/.vimrc $HOME
 cp -r ./src/.vim $HOME
 
+sudo apt-get install tree
 sudo apt-get install tmux
 cp ./src/.tmux.conf $HOME
 cp -r ./src/.tmux $HOME

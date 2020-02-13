@@ -27,13 +27,13 @@ run_segment() {
 				;;
 		esac
 		if [ -n "${type}" ]; then
-			format=$(echo "${format} ${type} ⇊ %5.01f ⇈ %5.01f")
+			formate=$(echo "${formate} ${type} ⇊ %.2f ⇈ %.2f")
 			holder=$(echo "${holder},\$$((index)),\$$((index+1))")
 		fi
 		index=$((index+2))
 	done
-	if [ -n "${format}" ]; then
-		echo $(echo "${flow_data#,}" | awk -F"," "{printf(\"${format}\"${holder})}")
+	if [ -n "${formate}" ]; then
+		echo $(echo "${flow_data#,}" | awk -F"," "{printf(\"${formate}\"${holder})}")
 	fi
 	return 0
 }

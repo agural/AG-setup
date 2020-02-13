@@ -54,7 +54,7 @@ Requirements for the lib to work are:
 
 * Recent tmux version
 * `bash --version` >= 3.2 (Does not have to be your default shell.)
-* A patched font. Follow instructions at [Powerline Installation](http://powerline.readthedocs.org/en/latest/installation/linux.html) or [download](https://github.com/powerline/fonts) a new one. However you can use other substitute symbols as well; see `config.sh`.
+* A patched font. Follow instructions at [Lokaltog/vim-powerline/fontpatcher](https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher) or [download](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts) a new one. However you can use other substitute symbols as well; see `config.sh`.
 
 ## Segment Requirements
 Requirements for some segments. You only need to fulfill the requirements for those segments you want to use.
@@ -70,10 +70,18 @@ Requirements for some segments. You only need to fulfill the requirements for th
 
 ## OS X specific requirements
 
-The `grep` tool is outdated on OS X 10.8 Mountain Lion so you might have to upgrade it.
+The `grep` tool is outdated on OS X 10.8 Mountain Lion so you might have to upgrade it. Unfortunately the main homebrew repo
+[does not contain grep](https://github.com/mxcl/homebrew/pull/3473) so use the following command to get the lastest version.
 
 ```bash
-brew install grep
+brew install https://raw.github.com/Homebrew/homebrew-dupes/master/grep.rb
+```
+
+or if you have heightened security set up, just tap the homebrew dupes and install grep
+
+```bash
+brew tap homebrew/dupes
+brew install homebrew/dupes/grep
 ```
 
 ## FreeBSD specific requirements
@@ -86,7 +94,7 @@ Start with checking out the repository with:
 
 ```console
 $ cd ~/some/path/
-$ git clone https://github.com/erikw/tmux-powerline.git
+$ git clone git://github.com/erikw/tmux-powerline.git
 ```
 
 Now edit your `~/.tmux.conf` to use the scripts:
@@ -95,6 +103,7 @@ Now edit your `~/.tmux.conf` to use the scripts:
 ```vim
 set-option -g status on
 set-option -g status-interval 2
+set-option -g status-utf8 on
 set-option -g status-justify "centre"
 set-option -g status-left-length 60
 set-option -g status-right-length 90
@@ -117,22 +126,11 @@ bind C-[ run '~/path/to/tmux-powerline/mute_powerline.sh left'		# Mute left stat
 bind C-] run '~/path/to/tmux-powerline/mute_powerline.sh right'		# Mute right statusbar.
 ```
 
-## For tmux versions < 2.1
-
 Some segments e.g. cwd and cvs_branch needs to find the current working directory of the active pane. To achieve this we let tmux save the path each time the shell prompt is displayed. Put the line below in your `~/.bashrc` or where you define you PS1 variable. zsh users can put it in e.g. `~/.zshrc` and may change `PS1` to `PROMPT` (but that's not necessary).
 
 ```bash
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 ```
-
-
-If the active shell is Fish, PS1 is not being set normally. Instead, it has a `fish_prompt` function that is being called when prompt rendering is required. This means that one can append the following command at the end of the function in `fish_prompt.fish` file:
-
-```fish
-if set -q TMUX; tmux setenv TMUXPWD_(tmux display -p "#D" | tr -d '%') $PWD; end
-```
-
-If you have a recent version of tmux (&ge; 2.1), there is no need to redefine the PS1 variable since tmux can be called directly to query the working directory of the active pane.
 
 # Configuration
 
