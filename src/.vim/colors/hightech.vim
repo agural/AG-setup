@@ -16,7 +16,7 @@
 " URL:          http://www.albertgural.com 
 " Credits:      Inspiration from the darkdot scheme.
 " Started:      Thursday - June 30, 2011.
-" Last Change:  Turesday - August 06, 2013.
+" Last Change:  Wednesday - February 12, 2020.
 " Installation: Place in ~/.vim/colors directory.
 "-------------------------------------------------------------------------------------------+
 
@@ -97,6 +97,10 @@ hi Function               guifg=#20a0ff                             ctermfg=39
 "hi link SpecialComment   Special
 "hi link Debug            Special
 "hi link FoldColumn       Folded
+hi Pmenu                  guifg=#00ff00  guibg=#585858              ctermfg=10   ctermbg=240
+hi PmenuSel               guifg=#00ffff  guibg=#808080              ctermfg=14   ctermbg=244
+hi PmenuSbar                             guibg=#444444                           ctermbg=238
+hi PmenuThumb                            guibg=#a8a8a8                           ctermbg=248
 
 "---------------------------- End Of hightech.vim Color Scheme -----------------------------+
 
