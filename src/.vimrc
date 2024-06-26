@@ -1,7 +1,7 @@
 " Albert Gural
 " e: ag@albertgural.com
 " w: http://albertgural.com
-" d: 2011/06/30 - 2020/02/11
+" d: 2011/06/30 - 2024/06/26
 
 syntax on
 set t_Co=256
@@ -114,15 +114,15 @@ endif
 
 " unicode symbols
 " https://github.com/vim-airline/vim-airline/wiki/Dummies-Guide-to-the-status-bar-symbols-(Powerline-fonts)-on-Fedora,-Ubuntu-and-Windows
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+let g:airline_left_sep = '⚫︎'
+let g:airline_left_alt_sep = '•'
+let g:airline_right_sep = '⚫︎'
+let g:airline_right_alt_sep = '•'
 let g:airline_symbols.paste = 'PASTE'
 let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.branch = ''
-let g:airline_symbols.dirty='🗲 '
-let g:airline_symbols.readonly = '⚠️ RO'
+let g:airline_symbols.branch = '⎇ '
+let g:airline_symbols.dirty= '⚠ '
+let g:airline_symbols.readonly = '⚠ RO'
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.spell = 'Ꞩ'
