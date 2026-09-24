@@ -1,0 +1,23 @@
+{
+  "model": "opus[1m]",
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "tui": "fullscreen",
+  "switchModelsOnFlag": true,
+  "statusLine": { "type": "command", "command": "~/.claude/statusline.sh" },
+  "hooks": {
+    "StopFailure": [{ "hooks": [{ "type": "command", "command": "~/.claude/bell.sh" }] }],
+    "Stop": [{ "hooks": [{ "type": "command", "command": "~/.claude/bell.sh" }] }],
+    "Notification": [{
+      "matcher": "permission_prompt|elicitation_dialog",
+      "hooks": [{ "type": "command", "command": "~/.claude/bell.sh" }]
+    }]
+  }
+}
